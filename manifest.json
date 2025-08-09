@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "DramaLounge: Annoyance Mode",
+  "version": "1.0.0",
+  "description": "Make browsing dramatically annoying on demand: visual chaos, emoji rain, Malayalam bubbles, audio beeps, and prank interactions.",
+  "action": {
+    "default_title": "Toggle Annoyance Mode"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "moods.js",
+        "content.js",
+        "easterEggs.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {}
+}
+
+
